@@ -12,9 +12,21 @@
 
 body {
     height: 100vh;
+}
 
+aside {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    height: 100%;
+}
+
+main {
+    background: yellow;
+}
+
+div {
+    background: green;
 }

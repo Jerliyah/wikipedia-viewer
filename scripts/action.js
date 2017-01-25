@@ -10,8 +10,15 @@ function build_wiki_search_url(pattern) {
 
 // Start search on button click
 $('#search-btn').click( function() {
-    // Clear console of previous info
+    // Clearing of previous info
     console.clear();
+    $('main').html('');
+
+    // Change Styling
+    // Aside sits at top with horizontal child elements
+    $('aside').css("height", "auto");
+    $('aside').css("flex-direction", "row");
+    $('aside').css("justify-content", "space-around");
 
     // Search based on user input
     var pattern = $('#search-input').val();
@@ -30,11 +37,14 @@ $('#search-btn').click( function() {
 
 
 function formatResponse(data) {
-    // Shows titles in relation to search
-    for(var i=0; i < data.query.search.length; i++) {
+    var entries = data.query.search;
+    var numOfEntries = entries.length;
 
-        title = data.query.search[i].title;
-        snippet = data.query.search[i].snippet;
+    // Shows titles in relation to search
+    for(var a=0; a < numOfEntries; a++) {
+
+        title = entries[a].title;
+        snippet = entries[a].snippet;
 
         // Present in HTML doc + console
         intoHTML(formatTitle(title), formatSnippet(snippet));
@@ -66,5 +76,11 @@ function formatSnippet(snippet) {
 
 
 function intoHTML(title, snippet) {
-    alert('title: ' + title + '\n snippet: ' + snippet);
+
+        // Individual divs created and populated
+        var $div = $('<div></div>');
+        $div.html('<h1>' + title + '</h1>  <h3>' + snippet + ' </h3>');
+
+        // Each div added to main area
+        $('main').append($div);
 }

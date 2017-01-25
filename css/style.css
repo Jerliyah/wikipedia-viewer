@@ -5,10 +5,19 @@
     Styling
 ===============*/
 body {
-  height: 100vh;
+  height: 100vh; }
+
+aside {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  height: 100%; }
+
+main {
+  background: yellow; }
+
+div {
+  background: green; }
 
 /*# sourceMappingURL=style.css.map */
