@@ -79,7 +79,7 @@ function intoHTML(title, snippet) {
 
         // Individual divs created and populated
         var $div = $('<div></div>');
-        $div.html('<h1>' + title + '</h1>  <h3>' + snippet + ' </h3>');
+        $div.html('<h1>' + title + '</h1>  <p>' + snippet + ' </p>');
 
         // Each div added to main area
         $('main').append($div);

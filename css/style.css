@@ -5,7 +5,8 @@
     Styling
 ===============*/
 body {
-  height: 100vh; }
+  height: 100vh;
+  background: #092B40; }
 
 aside {
   display: flex;
@@ -13,11 +14,39 @@ aside {
   justify-content: center;
   align-items: center;
   height: 100%; }
+  aside h1 {
+    color: white; }
 
-main {
-  background: yellow; }
+input {
+  text-align: center;
+  margin: 1rem;
+  border: 3px solid #6699ff;
+  border-radius: 2rem;
+  font-size: 1.5em; }
+
+button {
+  background: #6699ff;
+  border-radius: 2rem;
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  font-size: 1em; }
+  button:focus {
+    background: #3377ff; }
+  button:hover {
+    background: #1a66ff; }
+  button:active {
+    background: #e6f2ff;
+    color: black; }
 
 div {
-  background: green; }
+  background: #e6f2ff;
+  padding: 1rem 3rem;
+  margin: 2rem 4rem; }
+  div h1 {
+    margin: 0; }
+  div p {
+    margin: 0; }
 
 /*# sourceMappingURL=style.css.map */

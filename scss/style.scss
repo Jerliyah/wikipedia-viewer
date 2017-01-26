@@ -2,7 +2,14 @@
     Variables
 =================*/
 
+// Theme
+$dBlue: #092B40;
+$mBlue: #6699ff;
+$lBlue: #e6f2ff;
 
+@mixin round {
+    border-radius: 2rem;
+}
 
 
 
@@ -12,6 +19,7 @@
 
 body {
     height: 100vh;
+    background: $dBlue;
 }
 
 aside {
@@ -21,12 +29,53 @@ aside {
     align-items: center;
 
     height: 100%;
+
+    h1 {
+        color: white;
+    }
 }
 
-main {
-    background: yellow;
+input {
+    text-align: center;
+    margin: 1rem;
+    border: 3px solid $mBlue;
+    @include round;
+    font-size: 1.5em;
+}
+
+button {
+    background: $mBlue;
+    @include round;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    font-size: 1em;
+
+    &:focus {
+        background: darken($mBlue, 10%)
+    }
+
+    &:hover {
+        background: darken($mBlue, 15%);
+    }
+
+    &:active {
+        background: $lBlue;
+        color: black;
+    }
 }
 
 div {
-    background: green;
+    background: $lBlue;
+    padding: 1rem 3rem;
+    margin: 2rem 4rem;
+
+    h1 {
+        margin: 0;
+    }
+
+    p {
+        margin: 0;
+    }
 }
