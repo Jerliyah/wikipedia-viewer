@@ -1,4 +1,10 @@
 
+// General
+function replaceAll(str, find, replace) {
+    return str.replace(new RegExp(find, 'g'), replace);
+}
+
+
 // Build url for search
 function build_wiki_search_url(pattern) {
     var base_url = "https://en.wikipedia.org/w/api.php";
@@ -45,6 +51,7 @@ function formatResponse(data) {
 
         title = entries[a].title;
         snippet = entries[a].snippet;
+        console.log(entries[a].pageid);
 
         // Present in HTML doc + console
         intoHTML(formatTitle(title), formatSnippet(snippet));
@@ -60,10 +67,7 @@ function formatSnippet(snippet) {
     var excess1 = '<span class="searchmatch">';
     var excess2 = '</span>';
 
-    function replaceAll(str, find, replace) {
-        return str.replace(new RegExp(find, 'g'), replace);
-    }
-
+    // Remove span tags
     var beginTagRemoved = replaceAll(snippet, excess1, '');
     var endTagRemoved = replaceAll(beginTagRemoved, excess2, '');
 
@@ -78,9 +82,21 @@ function formatSnippet(snippet) {
 function intoHTML(title, snippet) {
 
         // Individual divs created and populated
+        var $a = $('<a></a>');
+        $a.attr('href', 'https://en.wikipedia.org/wiki/' + formatURL(title));
+
         var $div = $('<div></div>');
         $div.html('<h1>' + title + '</h1>  <p>' + snippet + ' </p>');
+        $a.append($div);
 
         // Each div added to main area
-        $('main').append($div);
+        $('main').append($a);
+}
+
+function formatURL(title) {
+    // Considerations for wikipedia when converting title url
+    title = replaceAll(title, ' ', '_');
+    title = title.replace("?","%3F");
+
+    return title;
 }

@@ -40,13 +40,26 @@ button {
     background: #e6f2ff;
     color: black; }
 
+main {
+  display: flex;
+  flex-direction: column; }
+
+a {
+  text-decoration: none;
+  color: transparent; }
+
 div {
   background: #e6f2ff;
   padding: 1rem 3rem;
-  margin: 2rem 4rem; }
+  color: black;
+  width: 80%;
+  margin: 1rem auto; }
   div h1 {
     margin: 0; }
   div p {
     margin: 0; }
+  div:hover {
+    border-left: 1rem solid #6699ff;
+    padding-left: 2rem; }
 
 /*# sourceMappingURL=style.css.map */
